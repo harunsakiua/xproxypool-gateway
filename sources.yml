@@ -1,0 +1,201 @@
+# =============================================================================
+# 代理来源配置
+# 修改此文件后重新 docker-compose up -d --build 生效
+# enabled: false 可临时禁用某个来源
+# =============================================================================
+
+domestic:
+
+  kuaidaili:
+    enabled: true
+    pages: 3
+    # {page} 会被替换为页码
+    url_templates:
+      - "https://www.kuaidaili.com/free/inha/{page}/"
+      - "https://www.kuaidaili.com/free/intr/{page}/"
+
+  ip3366:
+    enabled: true
+    pages: 3
+    url_templates:
+      - "http://www.ip3366.net/free/?stype=1&page={page}"
+      - "http://www.ip3366.net/free/?stype=2&page={page}"
+
+  kxdaili:
+    enabled: true
+    pages: 3
+    url_template: "http://www.kxdaili.com/dailiip/1/{page}.html"
+
+  ip89:
+    enabled: true
+    url: "https://www.89ip.cn/tqdl.html?num=200&address=&kill_address=&port=&kill_port=&isp="
+
+  docip:
+    enabled: true
+    url: "https://www.docip.net/data/free.json"
+
+  zdaye:
+    enabled: false  # 410 Gone，页面已失效
+    index_url: "https://www.zdaye.com/dayProxy/ip/1.html"
+    selector: ".thread_item h3 a"
+
+international:
+
+  proxyscrape:
+    enabled: true
+    # key 即 protocol 类型
+    urls:
+      http: "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=http&timeout=5000&country=all&ssl=all&anonymity=all"
+      socks5: "https://api.proxyscrape.com/v2/?request=displayproxies&protocol=socks5&timeout=5000&country=all"
+
+  geonode:
+    enabled: true
+    pages: 3
+    url_template: "https://proxylist.geonode.com/api/proxy-list?limit=100&page={page}&sort_by=lastChecked&sort_type=desc"
+
+  thespeedx:
+    enabled: true
+    urls:
+      http: "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/http.txt"
+      socks5: "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt"
+      socks4: "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks4.txt"
+
+  monosans:
+    enabled: true
+    urls:
+      http: "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/http.txt"
+      socks5: "https://raw.githubusercontent.com/monosans/proxy-list/main/proxies/socks5.txt"
+
+  openproxylist:
+    enabled: true
+    url: "http://api.openproxylist.xyz/http.txt"
+
+  proxifly:
+    enabled: true
+    # jsDelivr CDN，更新频率约5分钟
+    urls:
+      http: "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/http/data.txt"
+      socks4: "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks4/data.txt"
+      socks5: "https://cdn.jsdelivr.net/gh/proxifly/free-proxy-list@main/proxies/protocols/socks5/data.txt"
+
+  komutan234:
+    enabled: true
+    # 更新频率约1-2分钟，可能含较多失效代理
+    urls:
+      http: "https://raw.githubusercontent.com/komutan234/Proxy-List-Free/main/proxies/http.txt"
+      socks4: "https://raw.githubusercontent.com/komutan234/Proxy-List-Free/main/proxies/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/komutan234/Proxy-List-Free/main/proxies/socks5.txt"
+
+  clearproxy:
+    enabled: false  # GitHub 仓库 404，不存在
+    # 自动校验后发布，更新频率约5分钟
+    urls:
+      http: "https://raw.githubusercontent.com/ClearProxy/checked-proxy-list/main/http.txt"
+      socks4: "https://raw.githubusercontent.com/ClearProxy/checked-proxy-list/main/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/ClearProxy/checked-proxy-list/main/socks5.txt"
+
+  vakhov:
+    enabled: true
+    # 强调 fresh，验证后更新，频率5-20分钟
+    urls:
+      http: "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/http.txt"
+      https: "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/https.txt"
+      socks4: "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/vakhov/fresh-proxy-list/master/socks5.txt"
+
+  murongpig:
+    enabled: true
+    # 超大聚合源（HTTP 10万+）
+    urls:
+      http: "https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/http.txt"
+      socks4: "https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/MuRongPIG/Proxy-Master/main/socks5.txt"
+
+  vmheaven:
+    enabled: true
+    # 四协议全，稳定更新
+    urls:
+      http: "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/http.txt"
+      https: "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/https.txt"
+      socks4: "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/vmheaven/VMHeaven-Free-Proxy-Updated/main/socks5.txt"
+
+  kangproxy:
+    enabled: true
+    # 每日自动更新验证
+    urls:
+      http: "https://raw.githubusercontent.com/officialputuid/KangProxy/main/http/http.txt"
+      https: "https://raw.githubusercontent.com/officialputuid/KangProxy/main/https/https.txt"
+      socks4: "https://raw.githubusercontent.com/officialputuid/KangProxy/main/socks4/socks4.txt"
+
+  iplocate:
+    enabled: true
+    # 定期验证，活跃更新
+    urls:
+      http: "https://raw.githubusercontent.com/iplocate/free-proxy-list/master/protocols/http.txt"
+      https: "https://raw.githubusercontent.com/iplocate/free-proxy-list/master/protocols/https.txt"
+      socks4: "https://raw.githubusercontent.com/iplocate/free-proxy-list/master/protocols/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/iplocate/free-proxy-list/master/protocols/socks5.txt"
+
+  ercindedeoglu:
+    enabled: true
+    # 数量巨大（HTTP 常上万），更新频繁
+    urls:
+      http: "https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/http.txt"
+      https: "https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/https.txt"
+      socks4: "https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/ErcinDedeoglu/proxies/main/proxies/socks5.txt"
+
+  zevtyardt:
+    enabled: true
+    # 1.5万条，每日更新
+    urls:
+      http: "https://raw.githubusercontent.com/zevtyardt/proxy-list/main/http.txt"
+      socks4: "https://raw.githubusercontent.com/zevtyardt/proxy-list/main/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/zevtyardt/proxy-list/main/socks5.txt"
+
+  hideip:
+    enabled: true
+    # 每10分钟更新，含CONNECT协议
+    urls:
+      http: "https://raw.githubusercontent.com/zloi-user/hideip.me/master/http.txt"
+      https: "https://raw.githubusercontent.com/zloi-user/hideip.me/master/https.txt"
+      socks4: "https://raw.githubusercontent.com/zloi-user/hideip.me/master/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/zloi-user/hideip.me/master/socks5.txt"
+
+  mmpx12:
+    enabled: true
+    # 每小时更新，含Tor出口节点
+    urls:
+      http: "https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt"
+      https: "https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt"
+      socks4: "https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks4.txt"
+      socks5: "https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks5.txt"
+
+  # === NEW SOURCES (added 2026-07-17) ===
+
+  roundproxies:
+    enabled: true
+    # 🔥 JSON API with SOCKS5 support (23% SOCKS5, 11% SOCKS4)
+    pages: 5
+    url_template: "https://roundproxies.com/api/get-free-proxies/?limit=100&page={page}&sort_by=lastChecked&sort_type=desc"
+
+  freevpnnode:
+    enabled: true
+    # Chinese proxy site with http/socks4/socks5 + auth support
+    url: "https://cn.freevpnnode.com/free-proxy/"
+
+  sslproxies:
+    enabled: true
+    # Classic SSL proxy list, 100 rows, HTML table
+    url: "https://www.sslproxies.org/"
+
+  usproxy:
+    enabled: true
+    # US-focused proxy list, 100 rows, HTML table
+    url: "https://www.us-proxy.org/"
+
+  freeproxylist:
+    enabled: true
+    # THE classic free proxy list, 300 rows, HTML table
+    url: "https://free-proxy-list.net/"

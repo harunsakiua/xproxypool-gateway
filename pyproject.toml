@@ -1,0 +1,33 @@
+[project]
+name = "myproxypool"
+version = "0.1.0"
+description = "Self-maintaining proxy pool with 22 sources, geo-routed dual pools, and an HTTP API"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "aiohttp[speedups]>=3.9.0",
+    "aiohttp-socks>=0.7.0",
+    "redis>=5.0.0",
+    "apscheduler>=3.10.0",
+    "pydantic>=2.0.0",
+    "pydantic-settings>=2.0.0",
+    "loguru>=0.7.0",
+    "beautifulsoup4>=4.12.0",
+    "lxml>=5.0.0",
+    "pyyaml>=6.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/proxy_pool", "src/ip2region"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.27.0",
+]

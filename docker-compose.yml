@@ -1,0 +1,30 @@
+services:
+  redis:
+    image: redis:alpine
+    # Host 6379 is often occupied (SSH tunnels, local Redis); use 6380 instead.
+    # Connect from host: redis-cli -h 127.0.0.1 -p 6380
+    ports:
+      - "6380:6379"
+    volumes:
+      - ./redis_data:/data
+    command: redis-server --appendonly yes
+
+  myproxypool:
+    build: .
+    ports:
+      - "12563:12563"
+    env_file:
+      - .env
+    environment:
+      - REDIS_HOST=redis
+      - SCORE_INIT=50
+      - HTTP_PROXY=http://host.docker.internal:7897
+      - HTTPS_PROXY=http://host.docker.internal:7897
+      - NO_PROXY=localhost,redis,127.0.0.1,10.*,172.*,192.168.*
+    volumes:
+      - ./sources.yml:/app/sources.yml:ro
+      - ./src:/app/src:ro
+    depends_on:
+      - redis
+    restart: unless-stopped
+

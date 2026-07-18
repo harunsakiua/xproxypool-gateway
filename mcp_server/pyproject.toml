@@ -1,0 +1,19 @@
+[project]
+name = "xproxypool-mcp"
+version = "0.1.0"
+description = "MCP server exposing read-only access to Xproxypool's Redis state"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0",
+    "redis>=5.0.0",
+]
+
+[project.scripts]
+xproxypool-mcp = "xproxypool_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["xproxypool_mcp"]

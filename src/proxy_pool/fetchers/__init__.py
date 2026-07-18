@@ -1,0 +1,68 @@
+from proxy_pool.fetchers.domestic import (
+    DocipFetcher,
+    Ip3366Fetcher,
+    Ip89Fetcher,
+    KuaidailiFetcher,
+    KxdailiFetcher,
+    ZdayeFetcher,
+)
+from proxy_pool.fetchers.international import (
+    ClearProxyFetcher,
+    ErcinDedeogluFetcher,
+    FreeProxyListFetcher,
+    FreevpnnodeFetcher,
+    GeonodeFetcher,
+    HideipFetcher,
+    IplocateFetcher,
+    KangProxyFetcher,
+    Komutan234Fetcher,
+    Mmpx12Fetcher,
+    MonosansFetcher,
+    MuRongPIGFetcher,
+    OpenProxyListFetcher,
+    ProxiflyFetcher,
+    ProxyScrapeFetcher,
+    RoundproxiesFetcher,
+    SslProxiesFetcher,
+    TheSpeedXFetcher,
+    UsProxyFetcher,
+    VMHeavenFetcher,
+    VakhovFetcher,
+    ZevtyardtFetcher,
+)
+
+ALL_FETCHERS = [
+    # Domestic
+    KuaidailiFetcher,
+    Ip3366Fetcher,
+    KxdailiFetcher,
+    Ip89Fetcher,
+    DocipFetcher,
+    ZdayeFetcher,
+    # International
+    ProxyScrapeFetcher,
+    GeonodeFetcher,
+    TheSpeedXFetcher,
+    MonosansFetcher,
+    OpenProxyListFetcher,
+    ProxiflyFetcher,
+    Komutan234Fetcher,
+    ClearProxyFetcher,
+    MuRongPIGFetcher,
+    VMHeavenFetcher,
+    KangProxyFetcher,
+    IplocateFetcher,
+    VakhovFetcher,
+    ErcinDedeogluFetcher,
+    ZevtyardtFetcher,
+    HideipFetcher,
+    Mmpx12Fetcher,
+    # New sources (2026-07-17)
+    RoundproxiesFetcher,
+    FreevpnnodeFetcher,
+    SslProxiesFetcher,
+    UsProxyFetcher,
+    FreeProxyListFetcher,
+]
+
+__all__ = ["ALL_FETCHERS"]
